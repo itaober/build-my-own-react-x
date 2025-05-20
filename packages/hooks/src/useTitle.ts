@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { isBrowser } from 'utils';
 
+import { useUnmount } from './useUnmount';
+
 export interface IUseTitleOptions {
   restoreOnUnmount?: boolean;
   manual?: boolean;
@@ -20,8 +22,7 @@ export const useTitle = (title: string, options: IUseTitleOptions = DEFAULT_OPTI
     }
   }, [title, options?.manual]);
 
-  // TODO: useUnmount
-  useEffect(() => () => {
+  useUnmount(() => {
     if (options?.restoreOnUnmount) {
       document.title = prevTitleRef.current;
     }
