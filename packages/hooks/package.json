@@ -1,0 +1,19 @@
+{
+  "name": "hooks",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.4"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+  }
+}
