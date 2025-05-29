@@ -1,15 +1,16 @@
 {
-  "name": "@itaober/hooks",
+  "name": "@itaober/redux",
   "version": "0.1.0",
   "description": "",
   "keywords": [],
   "license": "MIT",
   "author": "",
   "type": "module",
-  "scripts": {},
-  "dependencies": {
-    "@itaober/utils": "workspace:*"
+  "exports": {
+    "./redux-js": "./src/redux-js/index.js"
   },
+  "scripts": {},
+  "dependencies": {},
   "devDependencies": {
     "@types/react": "^19.1.4"
   },

@@ -1,5 +1,11 @@
+import Redux from './pages/Redux';
+
 function App() {
-  return <div className="h-screen flex items-center justify-center">SPA App</div>;
+  return (
+    <div className="h-screen">
+      <Redux />
+    </div>
+  );
 }
 
 export default App;
