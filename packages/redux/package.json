@@ -7,7 +7,8 @@
   "author": "",
   "type": "module",
   "exports": {
-    "./redux-js": "./src/redux-js/index.js"
+    "./redux-js": "./src/redux-js/index.js",
+    "./react-redux": "./src/react-redux/index.ts"
   },
   "scripts": {},
   "dependencies": {},
@@ -15,6 +16,6 @@
     "@types/react": "^19.1.4"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+    "react": "^18.0.0 || ^19.0.0"
   }
 }

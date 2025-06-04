@@ -1,4 +1,4 @@
-import { BrowserRouter, useNavigate } from 'react-router';
+import { BrowserRouter, useLocation, useNavigate } from 'react-router';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -20,23 +20,33 @@ const demoList = [
   },
 ];
 
-const DemoCard = ({ title, description, path }: (typeof demoList)[number]) => {
+const DemoCardGrid = () => {
   const navigate = useNavigate();
 
+  const location = useLocation();
+
+  if (location.pathname !== '/') {
+    return null;
+  }
+
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <CardDescription>{description}</CardDescription>
-      </CardContent>
-      <CardFooter>
-        <Button className="w-full" variant="outline" onClick={() => navigate(path)}>
-          Go
-        </Button>
-      </CardFooter>
-    </Card>
+    <div className="grid grid-cols-1 gap-4 p-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      {demoList.map(item => (
+        <Card key={item.path} className="w-full">
+          <CardHeader>
+            <CardTitle>{item.title}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription>{item.description}</CardDescription>
+          </CardContent>
+          <CardFooter>
+            <Button className="w-full" variant="outline" onClick={() => navigate(item.path)}>
+              Go
+            </Button>
+          </CardFooter>
+        </Card>
+      ))}
+    </div>
   );
 };
 
@@ -45,11 +55,7 @@ function App() {
     <BrowserRouter>
       <div className="h-screen">
         <PageRoutes />
-        <div className="grid grid-cols-1 gap-4 p-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {demoList.map(item => (
-            <DemoCard key={item.path} {...item} />
-          ))}
-        </div>
+        <DemoCardGrid />
       </div>
     </BrowserRouter>
   );
