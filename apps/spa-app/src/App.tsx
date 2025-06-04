@@ -10,15 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 
-import { PageRoutes } from './routes';
-
-const demoList = [
-  {
-    title: 'Redux',
-    description: '',
-    path: '/redux',
-  },
-];
+import { pageList, PageRoutes } from './routes';
 
 const DemoCardGrid = () => {
   const navigate = useNavigate();
@@ -31,7 +23,7 @@ const DemoCardGrid = () => {
 
   return (
     <div className="grid grid-cols-1 gap-4 p-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-      {demoList.map(item => (
+      {pageList.map(item => (
         <Card key={item.path} className="w-full">
           <CardHeader>
             <CardTitle>{item.title}</CardTitle>

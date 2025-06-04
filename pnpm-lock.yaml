@@ -53,6 +53,9 @@ importers:
 
   apps/spa-app:
     dependencies:
+      '@itaober/react-context-selector':
+        specifier: workspace:*
+        version: link:../../packages/react-context-selector
       '@itaober/redux':
         specifier: workspace:*
         version: link:../../packages/redux
@@ -119,6 +122,16 @@ importers:
         version: link:../utils
       react:
         specifier: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+        version: 19.1.0
+    devDependencies:
+      '@types/react':
+        specifier: ^19.1.4
+        version: 19.1.4
+
+  packages/react-context-selector:
+    dependencies:
+      react:
+        specifier: ^18.0.0 || ^19.0.0
         version: 19.1.0
     devDependencies:
       '@types/react':

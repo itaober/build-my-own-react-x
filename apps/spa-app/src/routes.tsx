@@ -5,6 +5,7 @@ import { Outlet, Route, Routes, useNavigate } from 'react-router';
 import { Button } from './components/ui/button';
 
 const ReduxPage = React.lazy(() => import('./pages/Redux'));
+const ReactContextSelectorPage = React.lazy(() => import('./pages/ReactContextSelector'));
 
 const Layout = () => {
   const navigate = useNavigate();
@@ -18,11 +19,28 @@ const Layout = () => {
   );
 };
 
+export const pageList = [
+  {
+    title: 'Redux',
+    description: '',
+    path: '/redux',
+    element: <ReduxPage />,
+  },
+  {
+    title: 'React Context Selector',
+    description: '',
+    path: '/react-context-selector',
+    element: <ReactContextSelectorPage />,
+  },
+];
+
 export const PageRoutes = () => {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route path="/redux" element={<ReduxPage />} />
+        {pageList.map(page => (
+          <Route key={page.path} path={page.path} element={page.element} />
+        ))}
       </Route>
     </Routes>
   );

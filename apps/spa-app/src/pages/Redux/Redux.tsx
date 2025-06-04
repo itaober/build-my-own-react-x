@@ -51,7 +51,7 @@ const ReactReduxIncrement = () => {
 };
 
 const ReactReduxSetName = () => {
-  const name = useSelector(state => state.info.name);
+  const name = useSelector(state => state.info?.name);
   const dispatch = useDispatch();
 
   console.log('ReactReduxSetName render: ', name);
