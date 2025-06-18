@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { isBrowser } from 'utils';
 
 import { useUnmount } from './useUnmount';
+import { isBrowser } from './utils';
 
 export interface IUseTitleOptions {
   restoreOnUnmount?: boolean;
@@ -14,7 +14,7 @@ const DEFAULT_OPTIONS: IUseTitleOptions = {
 };
 
 export const useTitle = (title: string, options: IUseTitleOptions = DEFAULT_OPTIONS) => {
-  const prevTitleRef = useRef(isBrowser() ? document.title : '');
+  const prevTitleRef = useRef(isBrowser ? document.title : '');
 
   useEffect(() => {
     if (!options?.manual) {
